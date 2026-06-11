@@ -1,0 +1,36 @@
+digraph system_architecture {
+  rankdir=TB; bgcolor="#0d1117"; fontname="Helvetica"; fontcolor="#c9d1d9";
+  label="alphaxiv-dl — system architecture"; labelloc=t; fontsize=18;
+  node [fontname="Helvetica", style="filled", fontcolor="#0d1117", shape=box, margin="0.16,0.10"];
+  edge [color="#8b949e", fontname="Helvetica", fontcolor="#8b949e", fontsize=10];
+
+  subgraph cluster_cli {
+    label="alphaxiv_dl (Nim CLI)"; color="#30363d"; fontcolor="#c9d1d9"; style=rounded;
+    args   [label="parseArgs()\nfeed | search", fillcolor="#58a6ff"];
+    disc   [label="discover* iterators\n(yield Paper)", fillcolor="#58a6ff"];
+    handle [label="handle(p) closure\ndedup · validate · download", fillcolor="#d29922"];
+    dlc    [label="newDlClient()\nfresh Connection: close\nper download", fillcolor="#a371f7"];
+    man    [label="manifest.tsv\nid · status · path · title", fillcolor="#3fb950"];
+    pdfs   [label="*.pdf on disk\n(%PDF validated)", fillcolor="#3fb950"];
+  }
+
+  subgraph cluster_disc {
+    label="alphaXiv (discovery layer)"; color="#30363d"; fontcolor="#c9d1d9"; style=rounded;
+    feed   [label="api.alphaxiv.org\n/papers/v3/feed (JSON)", fillcolor="#e6edf3"];
+    search [label="api.alphaxiv.org\n/search/v2/paper/fast (JSON)", fillcolor="#e6edf3"];
+  }
+  subgraph cluster_dl {
+    label="arXiv (PDF host)"; color="#30363d"; fontcolor="#c9d1d9"; style=rounded;
+    arxiv  [label="export.arxiv.org/pdf/<id>\n(application/pdf)", fillcolor="#e6edf3"];
+  }
+
+  args -> disc;
+  disc -> feed   [label="feed mode"];
+  disc -> search [label="search mode"];
+  feed -> handle [label="universal_paper_id"];
+  search -> handle [label="paperId"];
+  handle -> dlc;
+  dlc -> arxiv [label="GET, retry+backoff"];
+  arxiv -> pdfs [label="200 %PDF"];
+  handle -> man;
+}

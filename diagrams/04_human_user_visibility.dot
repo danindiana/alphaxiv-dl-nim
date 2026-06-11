@@ -1,0 +1,25 @@
+digraph human_visibility {
+  rankdir=TB; bgcolor="#0d1117"; fontname="Helvetica"; fontcolor="#c9d1d9";
+  label="alphaxiv-dl — human / operator visibility & control"; labelloc=t; fontsize=18;
+  node [fontname="Helvetica", style="filled", fontcolor="#0d1117", shape=box, margin="0.16,0.10"];
+  edge [color="#8b949e", fontname="Helvetica", fontcolor="#8b949e", fontsize=10];
+
+  human [label="human operator", fillcolor="#58a6ff", shape=oval];
+
+  subgraph cluster_in {
+    label="control inputs (human -> tool)"; color="#30363d"; fontcolor="#c9d1d9"; style=rounded;
+    flags [label="--max · --pages · --delay\n--dry-run · --ids-only\n--ua (contact email)", fillcolor="#d29922"];
+    ctrlc [label="Ctrl-C (SIGINT)\nstop anytime", fillcolor="#f85149"];
+  }
+  subgraph cluster_out {
+    label="visible outputs (tool -> human)"; color="#30363d"; fontcolor="#c9d1d9"; style=rounded;
+    log  [label="stderr colour log\ncrawling / [n] id title\nsaved / skip / warning", fillcolor="#3fb950"];
+    man  [label="manifest.tsv\nauditable record", fillcolor="#3fb950"];
+    files[label="PDF files in --out", fillcolor="#3fb950"];
+    summ [label="final summary\ndownloaded/skipped/other", fillcolor="#3fb950"];
+  }
+
+  human -> flags; human -> ctrlc;
+  flags -> log [style=invis];
+  log -> human; man -> human; files -> human; summ -> human;
+}

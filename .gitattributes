@@ -1,0 +1,6 @@
+# Keep documentation/diagram assets out of GitHub language stats so Nim wins.
+*.dot       linguist-documentation
+*.svg       linguist-documentation
+*.svg       -linguist-detectable
+diagrams/*  linguist-documentation
+assets/*    linguist-documentation

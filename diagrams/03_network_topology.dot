@@ -1,0 +1,21 @@
+digraph network_topology {
+  rankdir=LR; bgcolor="#0d1117"; fontname="Helvetica"; fontcolor="#c9d1d9";
+  label="alphaxiv-dl — network topology"; labelloc=t; fontsize=18;
+  node [fontname="Helvetica", style="filled", fontcolor="#0d1117", shape=box, margin="0.16,0.10"];
+  edge [color="#8b949e", fontname="Helvetica", fontcolor="#8b949e", fontsize=10];
+
+  subgraph cluster_host {
+    label="operator host (e.g. worlock)"; color="#30363d"; fontcolor="#c9d1d9"; style=rounded;
+    bin  [label="alphaxiv_dl\nshared JSON client +\nper-download dl client", fillcolor="#58a6ff"];
+    pol  [label="politeness\n--delay (3s) · backoff\nUA w/ contact email", fillcolor="#d29922"];
+    bin -> pol [style=dashed, dir=none];
+  }
+
+  alpha [label="api.alphaxiv.org\nTLS 443 · JSON", fillcolor="#a371f7"];
+  arxiv [label="export.arxiv.org/pdf\nTLS 443 · application/pdf\nKeep-alive: close", fillcolor="#3fb950"];
+
+  bin -> alpha [label="GET feed/search\n(keep-alive reuse OK for JSON)"];
+  bin -> arxiv [label="GET pdf\nfresh socket / attempt"];
+  alpha -> bin [label="arXiv ids + titles"];
+  arxiv -> bin [label="PDF bytes (Content-Length checked)"];
+}

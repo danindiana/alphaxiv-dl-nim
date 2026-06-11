@@ -1,0 +1,17 @@
+digraph future_directions {
+  rankdir=LR; bgcolor="#0d1117"; fontname="Helvetica"; fontcolor="#c9d1d9";
+  label="alphaxiv-dl — future directions"; labelloc=t; fontsize=18;
+  node [fontname="Helvetica", style="filled", fontcolor="#0d1117", shape=box, margin="0.16,0.10"];
+  edge [color="#8b949e"];
+
+  now [label="today\nstreaming · backoff\nfresh client · manifest", fillcolor="#3fb950"];
+
+  r1 [label="HTTP Range resume\n(continue partial PDFs)", fillcolor="#58a6ff"];
+  r2 [label="downloadFile() stream-to-disk\n(no full body in RAM)", fillcolor="#58a6ff"];
+  r3 [label="bounded concurrency\n(N parallel, still polite)", fillcolor="#58a6ff"];
+  r4 [label="config file / profiles\n(.alphaxivdl.toml)", fillcolor="#a371f7"];
+  r5 [label="cross-run dedupe\n(global manifest/db)", fillcolor="#a371f7"];
+  r6 [label="arXiv bulk dataset path\nfor large-scale harvest", fillcolor="#d29922"];
+
+  now -> r1; now -> r2; now -> r3; now -> r4; now -> r5; now -> r6;
+}

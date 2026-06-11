@@ -1,0 +1,9 @@
+# Nim build artifacts (the release binary IS committed; these are intermediates)
+*.o
+nimcache/
+*.out
+
+# editor / OS cruft
+*.swp
+*.bak
+.DS_Store

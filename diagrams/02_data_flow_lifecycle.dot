@@ -1,0 +1,36 @@
+digraph data_flow {
+  rankdir=TB; bgcolor="#0d1117"; fontname="Helvetica"; fontcolor="#c9d1d9";
+  label="alphaxiv-dl — per-paper data-flow lifecycle (streaming)"; labelloc=t; fontsize=18;
+  node [fontname="Helvetica", style="filled", fontcolor="#0d1117", shape=box, margin="0.16,0.10"];
+  edge [color="#8b949e", fontname="Helvetica", fontcolor="#8b949e", fontsize=10];
+
+  y    [label="iterator yields Paper\n(page-by-page, streamed)", fillcolor="#58a6ff"];
+  dup  [label="seen? / empty id?", fillcolor="#d29922", shape=diamond];
+  val  [label="isArxivId(id)?", fillcolor="#d29922", shape=diamond];
+  have [label="file exists & %PDF?", fillcolor="#d29922", shape=diamond];
+  get  [label="downloadPdf()\nfresh dl client", fillcolor="#a371f7"];
+  code [label="HTTP status?", fillcolor="#d29922", shape=diamond];
+  ispdf[label="body starts %PDF?", fillcolor="#d29922", shape=diamond];
+  save [label="write file + manifest 'ok'", fillcolor="#3fb950"];
+  skip [label="manifest 'skipped'", fillcolor="#3fb950"];
+  miss [label="404 -> 'missing'", fillcolor="#f85149"];
+  back [label="429/503/short-read\nsleep, delay*=2, retry", fillcolor="#f85149"];
+  fail [label="giving up after N\n-> 'failed'", fillcolor="#f85149"];
+
+  y -> dup;
+  dup -> val   [label="new"];
+  dup -> y     [label="dup/empty (next)"];
+  val -> have  [label="yes"];
+  val -> y     [label="no: warn, next"];
+  have -> skip [label="yes"];
+  have -> get  [label="no"];
+  get -> code;
+  code -> ispdf [label="200"];
+  code -> miss  [label="404"];
+  code -> back  [label="429/503/other"];
+  ispdf -> save [label="yes"];
+  ispdf -> back [label="no (HTML/captcha)"];
+  back -> get   [label="attempt < retries"];
+  back -> fail  [label="exhausted"];
+  save -> y     [label="--max? else next"];
+}
