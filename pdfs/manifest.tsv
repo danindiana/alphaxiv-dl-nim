@@ -1,0 +1,38 @@
+2606.11167	skipped	pdfs/2606.11167	Multi-Faceted Interactivity Alignment in Full-Duplex Speech Models
+2606.11289	skipped	pdfs/2606.11289	i1: A Simple and Fully Open Recipe for Strong Text-to-Image Models
+2606.10650	skipped	pdfs/2606.10650	Dynamic Linear Attention
+2606.09803	skipped	pdfs/2606.09803	Echo-Memory: A Controlled Study of Memory in Action World Models
+2606.11188	skipped	pdfs/2606.11188	ARM: An AutoRegressive Large Multimodal Model with Unified Discrete Representations
+2606.12191	skipped	pdfs/2606.12191	Agentic Environment Engineering for Large Language Models: A Survey of Environment Modeling, Synthesis, Evaluation, and Application
+2606.10728	skipped	pdfs/2606.10728	DeNovoSWE: Scaling Long-Horizon Environments for Generating Entire Repositories from Scratch
+2606.10135	failed	pdfs/2606.10135	BiWM: Advancing Open-Source Interactive Video World Models with Bidirectional Autoregression
+2606.09827	ok	pdfs/2606.09827	MemoryVLA++: Temporal Modeling via Memory and Imagination in Vision-Language-Action Models
+2606.10924	ok	pdfs/2606.10924	Spacetime from Operator Algebras
+2606.11129	ok	pdfs/2606.11129	WorldOlympiad: Can Your World Model Survive a Triathlon?
+2606.09669	ok	pdfs/2606.09669	SpatialWorld: Benchmarking Interactive Spatial Reasoning of Multimodal Agents in Real-World Tasks
+2606.11683	ok	pdfs/2606.11683	Reason, Then Re-reason: Cross-view Revisiting Improves Spatial Reasoning
+2606.11484	ok	pdfs/2606.11484	Handbook of Error-Correcting Codes
+2606.12366	failed	pdfs/2606.12366	APT: Action Expert Pretraining Improves Instruction Generalization of Vision-Language-Action Policies
+2606.10875	ok	pdfs/2606.10875	Pushing the Limits of LLM Tool Calling via Experiential Knowledge Integration and Activation
+2606.10231	ok	pdfs/2606.10231	LLM can Read Spectrogram: Encoder-free Speech-Language Modeling
+2606.10346	ok	pdfs/2606.10346	Reasoning or Memorization? Direction-Aware Diversity Exploration in LLM Reinforcement Learning
+2606.08719	ok	pdfs/2606.08719	Thinking Without Images: Internalizing Visual Manipulation with On-Policy Self-Distillation
+2606.11042	failed	pdfs/2606.11042	Workflow-GYM: Towards Long-Horizon Evaluation of Computer-use Agentic tasks in Real-World Professional Fields
+2606.12105	ok	pdfs/2606.12105	DAM-VLA: Decoupled Asynchronous Multimodal Vision Language Action model
+2606.11119	ok	pdfs/2606.11119	TRACE: A Unified Rollout Budget Allocation Framework for Efficient Agentic Reinforcement Learning
+2606.12198	ok	pdfs/2606.12198	LLM-Based User Personas for Recommendations at Scale
+2606.09806	ok	pdfs/2606.09806	Topological Neural Operators
+2606.12396	ok	pdfs/2606.12396	VLGA: Vision-Language-Geometry-Action Models for Autonomous Driving
+2606.10267	ok	pdfs/2606.10267	What Matters in Orchestrating Robot Policies: A Systematic Study of Hierarchical VLA Agents
+2606.10614	ok	pdfs/2606.10614	Dexterous Point Policy: Learning Point-based Dexterous Hand Policies from Human Demonstrations
+2606.09730	ok	pdfs/2606.09730	SearchSwarm: Towards Delegation Intelligence in Agentic LLMs for Long-Horizon Deep Research
+2606.11751	ok	pdfs/2606.11751	AnchorEdit: Maintaining Temporal Consistency in Multi-turn Image Editing via Causal Memory
+2606.09593	ok	pdfs/2606.09593	Parent-Hash DAG: A Cost Analysis of Constant-Time Append for On-Chain Registries
+2606.12344	ok	pdfs/2606.12344	Claw-SWE-Bench: A Benchmark for Evaluating OpenClaw-style Agent Harnesses on Coding Tasks
+2606.12316	ok	pdfs/2606.12316	Slots, Transitions, Loops: Learning Composable World Models for ARC
+2606.09798	failed	pdfs/2606.09798	SynManDex: Synthesizing Human-like Dexterous Grasps from Synthetic Human Pre-Grasps
+2606.10646	ok	pdfs/2606.10646	How Does Reasoning Flow? Tracing Attention-Induced Information Flow for Targeted RL in LLMs
+2606.10572	ok	pdfs/2606.10572	One Token per Multimodal Evidence: Latent Memory for Resource-Constrained QA
+2606.12397	ok	pdfs/2606.12397	Redesign Mixture-of-Experts Routers with Manifold Power Iteration
+2606.09570	failed	pdfs/2606.09570	UXBench: Benchmarking User Experience in AI Assistants
+2606.11709	ok	pdfs/2606.11709	RLCSD: Reinforcement Learning
