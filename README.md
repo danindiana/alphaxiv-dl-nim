@@ -104,6 +104,15 @@ See [HOWTO.md](HOWTO.md) for a task-oriented walkthrough, and
 [diagrams/](diagrams/) for the full visual set (architecture, data-flow,
 network, operator visibility, roadmap).
 
+### Parallel fork
+
+[`fork/`](fork/) holds a **throttled-parallel** variant (v1.2): a bounded worker
+pool with a *global* request-spacing throttle, compile-time tunables, an
+`.nimble` package, and a **resumable, host-failover downloader** (curl-backed
+Range-resume, falling back to `arxiv.org` and to Nim `std/httpclient`). It exists
+because `export.arxiv.org` currently truncates large PDFs mid-stream — see
+[fork/README.md](fork/README.md) for the full debug write-up.
+
 ## API specifics (verified 2026-06-11)
 
 - **Feed:** `GET api.alphaxiv.org/papers/v3/feed?pageNum=&pageSize=&sort=&interval=`
